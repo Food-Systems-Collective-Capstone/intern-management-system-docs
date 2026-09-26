@@ -14,7 +14,7 @@ The purpose of this handoff is to identify what is ready for BA acceptance testi
 
 The following Core MVP task lifecycle has been tested end-to-end:
 
-`Assigned â†’ In Progress â†’ Submitted â†’ Completed`
+`Assigned → In Progress → Submitted → Completed`
 
 The verified flow is:
 
@@ -50,16 +50,16 @@ The verified Weekly Progress flow is:
 | Mentor Reference Attachment | PASS | Optional Mentor reference attachment is uploaded through the backend to Supabase Storage and associated with the task. The attachment can be retrieved again through a signed URL. |
 | Intern My Tasks | PASS | Assigned tasks are retrieved from live backend task data and displayed to the Intern. |
 | Intern Task Detail | PASS | Intern can view task information and Mentor reference attachment where available. |
-| Assigned â†’ In Progress | PASS | Start Task updates the task from Assigned to In Progress through the backend. |
+| Assigned → In Progress | PASS | Start Task updates the task from Assigned to In Progress through the backend. |
 | Task Submission | PASS | Intern can submit task work and an attachment. Successful submission changes the task to Submitted. |
 | Mentor Review | PASS | Mentor can retrieve submitted task information and submission attachment information through Review Progress. |
-| Submitted â†’ Completed | PASS | Mentor can explicitly complete an eligible Submitted task. Completed state persists and submitted work remains visible. |
+| Submitted → Completed | PASS | Mentor can explicitly complete an eligible Submitted task. Completed state persists and submitted work remains visible. |
 | Weekly Progress Submission | PASS | Accomplishments, Blockers, and Next Steps are persisted separately from Task Submission. |
 | Weekly Progress Duplicate Protection | PASS | Backend/database persistence prevents another record for the same Intern and stored `reporting_week` value. |
 | Mentor Weekly Progress View | PASS | Mentor Review retrieves and displays the selected Intern's Weekly Progress as read-only. |
 | Task Summary Metrics | PASS | UX v2 summary values are calculated from retrieved task data rather than hardcoded summary values. |
 | Core MVP Navigation | PASS | Mentor and Intern Core MVP screens are connected through application navigation, including Intern Weekly Progress. |
-| Mentorâ€“Intern Relationship Enforcement | DEFERRED | Final Mentor-to-Intern relationship enforcement depends on the shared Team A/B account and RBAC integration. |
+| Mentor–Intern Relationship Enforcement | DEFERRED | Final Mentor-to-Intern relationship enforcement depends on the shared Team A/B account and RBAC integration. |
 | Final Authenticated User Identity | DEFERRED | Temporary Team 40 Mentor/Intern test identities are used for current integration testing. Final identity must come from the shared authentication/account flow. |
 | Reporting Week Convention | ISSUE | The database protects uniqueness for `(intern_id, reporting_week)`, but the exact reporting-week date convention still requires confirmation before claiming calendar-week normalisation. |
 
@@ -133,13 +133,13 @@ The following items are intentionally not treated as completed Sprint 2 integrat
 
 The intended shared IMS flow remains:
 
-`Register â†’ Applicant â†’ Recruitment/Application â†’ Accepted â†’ Intern â†’ Team B Intern Workspace`
+`Register → Applicant → Recruitment/Application → Accepted → Intern → Team B Intern Workspace`
 
 Team B should continue to reuse the shared account/profile foundation rather than create a separate permanent user model.
 
 Temporary Team 40 Mentor/Intern accounts are currently used to support Team B integration testing.
 
-### Mentorâ€“Intern Relationship and RBAC
+### Mentor–Intern Relationship and RBAC
 
 The current Mentor Weekly Progress flow validates the relevant shared accounts but does not yet enforce a final Mentor-to-Intern relationship.
 
@@ -167,15 +167,15 @@ The Core MVP Team B workflow is ready for BA acceptance testing against the curr
 
 BA can validate the integrated user flow:
 
-`Mentor Assign Task â†’ Intern My Tasks â†’ Start Task â†’ Submit Task â†’ Mentor Review â†’ Complete Task`
+`Mentor Assign Task → Intern My Tasks → Start Task → Submit Task → Mentor Review → Complete Task`
 
 BA can also validate Weekly Progress separately through:
 
-`Intern Weekly Progress â†’ Submit Progress â†’ Submitted/Locked State â†’ Mentor Review Progress`
+`Intern Weekly Progress → Submit Progress → Submitted/Locked State → Mentor Review Progress`
 
 Acceptance testing should confirm the expected task information, navigation, status transitions, submission visibility, Weekly Progress behaviour, and approved UX v2 screen behaviour.
 
-The Sprint 3 dependencies documented above should not be treated as Sprint 2 acceptance failures unless the agreed scope is changed. In particular, final shared authenticated identity and Mentorâ€“Intern relationship/RBAC integration remain dependent on the shared Team A/B account integration.
+The Sprint 3 dependencies documented above are outside the current Sprint 2 acceptance baseline and should be recorded as known deferred dependencies rather than Sprint 2 implementation failures. In particular, final shared authenticated identity and Mentor–Intern relationship/RBAC integration remain dependent on the shared Team A/B account integration.
 
 ---
 
